@@ -1,0 +1,132 @@
+from tkinter import *
+import numpy as np
+import pandas as pd
+
+def angle():
+    Head_to_Right_leg=entry1.get()
+    Head_to_Right_leg1=entry2.get()
+    Head_to_Rigth_Arm=entry3.get()
+    Head_to_Rigth_Arm1=entry4.get()
+    Head_to_both_shoulder=entry5.get()
+    Head_to_both_shoulder1=entry6.get()
+    v=np.array([Head_to_Right_leg,Head_to_Right_leg1,Head_to_Rigth_Arm,Head_to_Rigth_Arm1,Head_to_both_shoulder,Head_to_both_shoulder1])
+    c=np.zeros((1,1))[0]
+    c=np.hstack((c,v))
+    df = pd.DataFrame(c).T
+    df.to_csv('dataset_inone.csv', mode='a', header=False)
+    np.save('doctor.npy',v)
+
+    import docend
+    
+    
+    
+    
+    
+root=Tk()  #this will create a window
+root.geometry("600x450+402+142")
+root.title("New Toplevel")
+root.configure(background="#d9d9d9")
+entry1=Entry(root)
+entry1.place(relx=0.4, rely=0.222,height=20, relwidth=0.123)
+entry1.configure(background="white")
+entry1.configure(font="TkTextFont")
+entry1.configure(foreground="black")
+entry1.configure(highlightbackground="#d9d9d9")
+entry1.configure(highlightcolor="black")
+entry1.configure(insertbackground="black")
+entry1.configure(selectbackground="#c4c4c4")
+entry1.configure(selectforeground="black")
+    
+entry2=Entry(root)
+entry2.place(relx=0.667, rely=0.222,height=20, relwidth=0.123)
+entry2.configure(background="white")
+entry2.configure(font="TkTextFont")
+entry2.configure(foreground="black")
+entry2.configure(highlightbackground="#d9d9d9")
+entry2.configure(highlightcolor="black")
+entry2.configure(insertbackground="black")
+entry2.configure(selectbackground="#c4c4c4")
+entry2.configure(selectforeground="black")
+
+entry3=Entry(root)
+entry3.place(relx=0.4, rely=0.422,height=20, relwidth=0.123)
+entry3.configure(background="white")
+entry3.configure(font="TkTextFont")
+entry3.configure(foreground="black")
+entry3.configure(highlightbackground="#d9d9d9")
+entry3.configure(highlightcolor="black")
+entry3.configure(insertbackground="black")
+entry3.configure(selectbackground="#c4c4c4")
+entry3.configure(selectforeground="black")
+
+entry4=Entry(root)
+entry4.place(relx=0.667, rely=0.422,height=20, relwidth=0.107)
+entry4.configure(background="white")
+entry4.configure(font="TkTextFont")
+entry4.configure(foreground="black")
+entry4.configure(highlightbackground="#d9d9d9")
+entry4.configure(highlightcolor="black")
+entry4.configure(insertbackground="black")
+entry4.configure(selectbackground="#c4c4c4")
+entry4.configure(selectforeground="black")
+
+entry5=Entry(root)
+entry5.place(relx=0.4, rely=0.622,height=20, relwidth=0.123)
+entry5.configure(background="white")
+entry5.configure(font="TkTextFont")
+entry5.configure(foreground="black")
+entry5.configure(highlightbackground="#d9d9d9")
+entry5.configure(highlightcolor="black")
+entry5.configure(insertbackground="black")
+entry5.configure(selectbackground="#c4c4c4")
+entry5.configure(selectforeground="black")
+entry6=Entry(root)
+entry6.place(relx=0.667, rely=0.622,height=20, relwidth=0.123)
+entry6.configure(background="white")
+entry6.configure(font="TkTextFont")
+entry6.configure(foreground="black")
+entry6.configure(highlightbackground="#d9d9d9")
+entry6.configure(highlightcolor="black")
+entry6.configure(insertbackground="black")
+entry6.configure(selectbackground="#c4c4c4")
+entry6.configure(selectforeground="black")
+
+Head_to_Right_leg=Label(root,text="Head_to_Right_leg")
+Head_to_Right_leg.place(relx=0.033, rely=0.2, height=41, width=184)
+Head_to_Right_leg.configure(background="#d9d9d9")
+Head_to_Right_leg.configure(disabledforeground="#a3a3a3")
+Head_to_Right_leg.configure(foreground="#000000")
+
+Head_to_Rigth_Arm=Label(root,text="Head_to_Rigth_Arm")
+Head_to_Rigth_Arm.place(relx=0.033, rely=0.4, height=41, width=174)
+Head_to_Rigth_Arm.configure(background="#d9d9d9")
+Head_to_Rigth_Arm.configure(disabledforeground="#a3a3a3")
+Head_to_Rigth_Arm.configure(foreground="#000000")
+
+
+Head_to_both_shoulder=Label(root,text="Head_to_both_shoulder")
+Head_to_both_shoulder.place(relx=0.033, rely=0.6, height=41, width=164)
+Head_to_both_shoulder.configure(background="#d9d9d9")
+Head_to_both_shoulder.configure(disabledforeground="#a3a3a3")
+Head_to_both_shoulder.configure(foreground="#000000")
+
+button=Button(root,text="click_me",command=angle)
+button.place(relx=0.55, rely=0.8, relheight=0.09, relwidth=0.207)
+button.configure(activebackground="#ececec")
+button.configure(activeforeground="#000000")
+button.configure(background="#d9d9d9")
+button.configure(disabledforeground="#a3a3a3")
+button.configure(foreground="#000000")
+button.configure(highlightbackground="#d9d9d9")
+button.configure(highlightcolor="black")
+button.configure(pady="0")
+
+message1=Message(root)
+message1.place(relx=0.2, rely=0.044, relheight=0.118, relwidth=0.617)
+message1.configure(background="#d9d9d9")
+message1.configure(foreground="#000000")
+message1.configure(highlightbackground="#d9d9d9")
+message1.configure(highlightcolor="black")
+message1.configure(text='''CHANGE THE ANGLE BETWEEN VARIOUS BODY PART''')
+message1.configure(width=370)
+root.mainloop()
